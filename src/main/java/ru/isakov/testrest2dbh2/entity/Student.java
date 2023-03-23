@@ -1,15 +1,13 @@
 package ru.isakov.testrest2dbh2.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name="STUDENTS")
 public class Student {
@@ -30,6 +28,9 @@ public class Student {
 
     @Column(name = "age")
     private int age;
+
+    public Student() {
+    }
 
     public Student(String name, String surname, String faculty, int age) {
         this.name = name;

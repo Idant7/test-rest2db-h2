@@ -1,14 +1,13 @@
 package ru.isakov.testrest2dbh2.dao;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.isakov.testrest2dbh2.entity.Student;
 
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
-import java.util.Queue;
 
 @Repository
 public class StudentDAOImpl implements StudentDAO {
@@ -35,7 +34,7 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public void deleteStudent(int id) {
 
-        Query query = entityManager.createQuery("delete from Student"
+        Query query = entityManager.createQuery("delete from Student "
                 + " where id =:studentId");
         query.setParameter("studentId", id);
         query.executeUpdate();
